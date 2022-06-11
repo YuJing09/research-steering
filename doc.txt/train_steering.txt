@@ -1,0 +1,97 @@
+
+sltang@jinnliu-WS660T:~$ pyenv install -l
+sltang@jinnliu-WS660T:~$ pyenv install -v 3.7.5
+sltang@jinnliu-WS660T:~$ pyenv versions
+sltang@jinnliu-WS660T:~$ pyenv virtualenv 3.7.5 train_steering
+sltang@jinnliu-WS660T:/media/jinnliu/My Passport/research-master0$ pyenv local train_steering
+(train_steering) sltang@jinnliu-WS660T:/media/jinnliu/My Passport/research-master0$
+
+sltang@jinnliu-WS660T:~$ pyenv global 3.7.5
+sltang@jinnliu-WS660T:~$  pyenv local 3.7.5
+sltasltang@jinnliu-WS660T:~$  virtualenv -p ~/.pyenv/versions/3.7.5/bin/python train_steering
+sltang@jinnliu-WS660T:~$ source train_steering/bin/activate
+(train_steering) sltang@jinnliu-WS660T:~$ deactivate
+sltang@jinnliu-WS660T:~$ 
+
+==========================================================================
+(Train_steering) (base) tom@tom-Aspire-TC-865:~/research-master$ 
+conda deactivate
+python server.py --batch 200 --port 5557
+# python server_tt.py --batch 200 --port 5557
+conda deactivate
+python server.py --batch 200 --validation --port 5556
+# python server_tt.py --batch 200 --validation --port 5556
+conda deactivate
+python train_steering_modeltt.py --port 5557 --val_port 5556
+# python train_steering_model.py --port 5557 --val_port 5556
+
+python view_steering_model_tt.py ./outputs/steering_model/steering_angle_4096BS.json
+#python view_steering_model_color.py ./outputs/steering_model/steering_angle_2BS.json
+# python view_steering_model.py ./outputs/steering_model/steering_angle_32steps_epoch.json
+# python view_steering_model.py ./outputs/steering_model/steering_angle_org.json
+
+--------------------------------------------------------------------------
+python server.py --port 5557
+python server.py --validation --port 5556
+python train_steering_model.py --port 5557 --val_port 5556
+python view_steering_model.py ./outputs/steering_model/steering_angle.json
+
+python train_model.py --port 5557 --val_port 5556
+***********************************************
+UBUNTU20.04 open terminal on "research-master0"
+===============================================
+tom@tom-Aspire-TC-865:~$ pyenv install 3.8.2
+tom@tom-Aspire-TC-865:~$  pyenv virtualenv 3.8.2 Train_steering
+tom@tom-Aspire-TC-865:~$ pyenv local Train_steering
+(Train_steering) tom@tom-Aspire-TC-865:~$ cd research-master
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pyenv versions
+  3.8.2/envs/Train_steering
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pip install --upgrade pip
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ sudo apt update
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ sudo apt -y upgrade
+(Train_steering)pip3 install matplotlib sudotom@tom-Aspire-TC-865:~/research-master$ sudo apt install -y python3-pip
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pip3 install package_name
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pip3 install numpy
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pip3 install pyzmq
+sltang@jinnliu-WS660T:/media/jinnliu/My Passport/research-master0$ python -m pip install pyzmq
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pip install six
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pip3 install h5py
+sltang@jinnliu-WS660T:/media/jinnliu/My Passport/research-master0$ python -m pip install h5py
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pip3 install scikit-image
+(ktopb) tom@tom-Aspire-TC-865:~/yp-Efficient$ pip3 install pygame
+(ktopb) tom@tom-Aspire-TC-865:~/yp-Efficient$ pip3 install opencv-python
+(ktopb) tom@tom-Aspire-TC-865:~/yp-Efficient$ 
+
+************************************************************
+Requirements
+anaconda
+tensorflow-0.9
+keras-1.0.6
+cv2
+*************************************************************
+Open 1st terminal under research-master
+(Train) tom@tom-TUF-Gaming-FX505DD-FX505DD:~/research-master0$ 
+python server.py --batch 200 --port 5557
+--------------------------------------------------------------
+Open 2nd terminal under research-master
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ python server.py --batch 200 --validation --port 5556
+----------------------------------------------------------------
+Open 3rd terminal under research-master
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pip3 install tensorflow
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ pip3 install keras
+(Train_steering) tom@tom-Aspire-TC-865:~/research-master$ python train_steering_model.py --port 5557 --val_port 5556
+-----------------------------------------------------------------
+###install anaconda
+*******************
+tom@tom-Aspire-TC-865:~/research-master$ conda info
+conda: command not found
+tom@tom-Aspire-TC-865:~/research-master$ 
+source ~/.bashrc
+
+(base) tom@tom-Aspire-TC-865:~/research-master$ 
+conda update conda
+(base) tom@tom-Aspire-TC-865:~/research-master$ 
+conda update anaconda
+(base) tom@tom-Aspire-TC-865:~/research-master$ 
+conda -V
+---conda 4.10.1

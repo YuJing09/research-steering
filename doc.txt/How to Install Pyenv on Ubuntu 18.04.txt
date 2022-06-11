@@ -1,0 +1,62 @@
+https://realpython.com/intro-to-pyenv/
+
+
+$ pyenv virtualenv 3.6.8 myproject
+$ pyenv local myproject
+$ pyenv activate <environment_name>
+$ pyenv deactivate
+--------------------------------------
+$ pyenv commands
+activate
+commands
+completions
+deactivate
+...
+virtualenvs
+whence
+which
+----------------------------------------
+CHANGE PYTHON VERSIONS
+$ pyenv global 2.7.15
+$ python -V
+Python 2.7.15
+----------------------------------------
+REMOVE / UNINSTALL
+$ pyenv uninstall 2.7.15
+$ rm -rf ~/.pyenv/versions/2.7.15
+========================================================================================
+root@ubuntu:~# apt update -y
+
+$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
+libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init -)"\nfi' >> ~/.bashrc
+root@ubuntu:~# exec "$SHELL"
+
+root@ubuntu:~# pyenv install --list
+root@ubuntu:~# pyenv install 3.8.3
+Downloading Python-3.8.3.tar.xz...
+-> https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tar.xz
+Installing Python-3.8.3...
+Installed Python-3.8.3 to /root/.pyenv/versions/3.8.3
+
+root@ubuntu:~# pyenv versions
+* system (set by /root/.pyenv/version)
+  3.8.3
+  
+root@ubuntu:~# pyenv global 3.8.3
+root@ubuntu:~# python
+Python 3.8.3 (default, Jun 10 2020, 22:45:23)
+[GCC 7.5.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
+root@ubuntu:~# pyenv help
+Usage: pyenv <command> [<args>]
+
+
+

@@ -1,0 +1,91 @@
+https://virtualenv.pypa.io/en/stable/
+Virtualenv
+
+-----------------------------------------------------------------------------------
+ㄧ. 檢查目前 Python 環境
+1. 查看目前使用 Python 版本
+tom@tom-Aspire-TC-865:~$ python3 --version
+Python 3.8.2
+tom@tom-Aspire-TC-865:~$ which python3
+/home/tom/.pyenv/shims/python3
+2. 檢查過去安裝過的 Python 版本
+▍查看 OS 安裝的 Python 版本
+tom@tom-Aspire-TC-865:~$ ls -al /usr/bin/python*
+lrwxrwxrwx 1 root root       7  4月 15  2020 /usr/bin/python -> python2
+lrwxrwxrwx 1 root root       9  3月 13  2020 /usr/bin/python2 -> python2.7
+▍查看 Anaconda 安裝的 Python 版本
+tom@tom-Aspire-TC-865:~$ ls -al ~/anaconda3/bin/python*
+lrwxrwxrwx 1 tom tom        9  1月 19 17:50 /home/tom/anaconda3/bin/python -> python3.7
+▍查看 pyenv 安裝的 Python 版本
+tom@tom-Aspire-TC-865:~$ ls -al ~/.pyenv/versions 
+drwxrwxr-x  3 tom tom 4096  1月 19 19:52 .
+3. 檢查過去 pip install 過的套件
+***********************************
+▍使用 pip3 list 查看安裝過的套件
+tom@tom-Aspire-TC-865:~$ pip3 list
+Package                Version  
+---------------------- ---------
+absl-py                0.11.0   
+astunparse             1.6.3    
+二. 使用 pyenv 選擇 Python 版本
+3. pyenv 指令大全
+▍查看 pyenv 可安裝 Python 版本
+tom@tom-Aspire-TC-865:~$ pyenv install -l
+Available versions:
+  2.1.3
+  2.2.3
+  2.3.7
+▍ 使用 pyenv 安裝特定 Python 版本
+tom@tom-Aspire-TC-865:~$ pyenv install -v 3.8.2
+pyenv: /home/tom/.pyenv/versions/3.8.2 already exists
+***************************************
+▍查看過去 pyenv 安裝過 Python 版本
+tom@tom-Aspire-TC-865:~$ pyenv versions
+  system
+* 3.8.2 (set by /home/tom/.pyenv/version)
+  3.8.2/envs/OP
+  3.8.2/envs/Train-steer
+  Train-steer
+▍使用 pyenv 切換 Python 版本
+pyenv global 3.7.7
+pyenv local 3.7.7
+pyenv shell 3.7.7
+三. 使用 virtualenv 建立環境
+1. 如何安裝 virtualenv
+tom@tom-Aspire-TC-865:~$ pip3 install virtualenv
+Collecting virtualenv
+  Downloading https://files.pythonhosted.org/packages/23/5e/12fd05915bd86af400c075fbe2bf57058c02dafe377623ab0a73961428ce/virtualenv-20.4.0-py2.py3-none-any.whl (5.7MB)
+     |████████████████████████████████| 5.7MB 2.4MB/s 
+Collecting filelock<4,>=3.0.0 (from virtualenv)
+
+2. 建立 virtualenv 環境包
+  1.移動到專案資料夾內
+  2.輸入 virtualenv venv -> venv 可以替換成任何名稱
+  3.完成後，即可看到專案內多了 venv 的資料料夾
+  ****************************************************
+# 建立環境時，使用環境預設 python 版本
+tom@tom-Aspire-TC-865:~$ virtualenv venv
+******************************************************
+# 建立環境時，如果要指定 python 版本
+tom@tom-Aspire-TC-865:~$ virtualenv -p ~/.pyenv/versions/3.8.2/bin/python venv
+3. 啟動 venv 環境
+tom@tom-Aspire-TC-865:~$ source venv/bin/activate
+(venv) tom@tom-Aspire-TC-865:~$ 
+▍ 查看一下目前使用的版本
+(venv) tom@tom-Aspire-TC-865:~$ python3 --version
+Python 3.8.2
+(venv) tom@tom-Aspire-TC-865:~$ which python
+/home/tom/venv/bin/python
+▍ 查看一下目前安裝的套件
+(venv) tom@tom-Aspire-TC-865:~$ pip3 list
+Package    Version
+---------- -------
+pip        20.3.3
+setuptools 51.0.0
+wheel      0.36.2
+4. 關閉環境 venv 包
+(venv) tom@tom-Aspire-TC-865:~$ deactivate
+tom@tom-Aspire-TC-865:~$ 
+******************************************************
+
+
